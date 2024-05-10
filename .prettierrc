@@ -1,0 +1,20 @@
+{
+  "trailingComma": "none",
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"],
+  "overrides": [
+    {
+      "files": "**/lwc/**/*.html",
+      "options": { "parser": "lwc" }
+    },
+    {
+      "files": "*.{cmp,page,component}",
+      "options": { "parser": "html" }
+    }
+  ]
+}
