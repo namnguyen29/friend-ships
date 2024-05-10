@@ -1,0 +1,53 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <section class="search-results-container slds-theme_default">
+    <lightning-tabset variant="scoped">
+      <lightning-tab label="Gallery">
+        <template lwc:if={isLoading}>
+          <lightning-spinner
+            alternative-text="Loading"
+            size="medium"
+            variant="base"
+          ></lightning-spinner>
+        </template>
+        <div class="slds-scrollable_y">
+          <lightning-layout horizontal-align="start" vertical-align="start" multiple-rows>
+            <template for:each={boats} for:item="boat">
+              <lightning-layout-item
+                padding="around-small"
+                size="12"
+                small-device-size="6"
+                medium-device-size="4"
+                large-device-size="3"
+                key={boat.Id}
+              >
+                <c-boat-tile
+                  boat={boat}
+                  selected-boat-id={selectedBoatId}
+                  onboatselect={updateSelectedTile}
+                ></c-boat-tile>
+              </lightning-layout-item>
+            </template>
+          </lightning-layout>
+        </div>
+      </lightning-tab>
+      <lightning-tab label="Boats Near Me">
+        <div class="slds-scrollable_y">
+          <c-boats-near-me boat-type-id={boatTypeId}></c-boats-near-me>
+        </div>
+      </lightning-tab>
+      <lightning-tab label="Boat Editor">
+        <div class="slds-scrollable_y">
+          <lightning-datatable
+            hide-checkbox-column
+            key-field="Id"
+            draft-values={tableDraftValues}
+            data={boats}
+            columns={columns}
+            onsave={handleSave}
+          ></lightning-datatable>
+        </div>
+      </lightning-tab>
+    </lightning-tabset>
+  </section>
+</template>

@@ -1,0 +1,25 @@
+<apex:page sidebar="true" showHeader="true">
+  <h1 style="font-size: 5rem">Congratulations</h1>
+  <p>
+    This is your new Page
+  </p>
+  <h1>Hello World</h1>
+
+  <apex:pageBlock title="A Block Title">
+    <apex:pageBlockSection title="A Section Title">
+      <p>nested text</p>
+    </apex:pageBlockSection>
+
+    <apex:pageBlockSection title="My nested section">
+      <p>
+        This is another section.
+      </p>
+    </apex:pageBlockSection>
+
+    <apex:pageBlockSection title="A New Section">
+      <p>
+        This is another section.
+      </p>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>
